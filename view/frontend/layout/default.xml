@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+	<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+		<body>
+
+		<referenceContainer name="after.body.start">
+            <block class="MagePrakash\CookieLaw\Block\Cookie\Cookie" name="cookielaw.after_body_start" as="after_body_start" template="MagePrakash_CookieLaw::cookielaw/after_body_start.phtml">
+            	<block class="MagePrakash\CookieLaw\Block\Cookie\Cookie" name="cookielaw.after_body_start.cookie" template="MagePrakash_CookieLaw::cookielaw/cookie.phtml"/>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="before.body.end">
+            <block class="MagePrakash\CookieLaw\Block\Cookie\Cookie" name="cookielaw.before_body_end" as="before_body_end" template="MagePrakash_CookieLaw::cookielaw/before_body_end.phtml">
+            	<block class="MagePrakash\CookieLaw\Block\Cookie\Cookie" name="cookielaw.before_body_end.cookie" template="MagePrakash_CookieLaw::cookielaw/cookie.phtml"/>
+            </block>
+        </referenceContainer>
+        </body>
+</page>
+

@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cookielaw_section" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>CookieLaw Configuration</label>
+            <tab>mageprakash</tab>
+            <resource>MagePrakash_CookieLaw::config</resource>
+                <group id="cookielaw_configuration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+
+                    <field id="cookielaw_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Module Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+
+                </group>
+                <group id="cookielaw_general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                     <label>General</label>
+
+                     <field id="cookielaw_style" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Select Style</label>
+                        <source_model>MagePrakash\CookieLaw\Model\Source\Style</source_model>
+                     </field>
+
+                     <field id="cookielaw_position" translate="label" sortOrder="20" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Bar Position</label>
+                        <source_model>MagePrakash\CookieLaw\Model\Source\Position</source_model>
+                         <depends>
+                             <field id="cookielaw_section/cookielaw_general/cookielaw_style">bar</field>
+                         </depends>
+                     </field>
+
+                    <field id="cookielaw_position_box" translate="label" sortOrder="20" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Bar Position</label>
+                        <source_model>MagePrakash\CookieLaw\Model\Source\Positionbox</source_model>
+                        <depends>
+                            <field id="cookielaw_section/cookielaw_general/cookielaw_style">box</field>
+                        </depends>
+                    </field>
+                    
+                     <field id="cookielaw_font_color" translate="label" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Font Color</label>
+                         <frontend_model>MagePrakash\CookieLaw\Block\Cookie\Color</frontend_model>
+                     </field>
+                    
+                     <field id="cookielaw_background_color" translate="label" sortOrder="40" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Background Color</label>
+                        <frontend_model>MagePrakash\CookieLaw\Block\Cookie\Color</frontend_model>
+                     </field>
+
+                    <field id="cookielaw_notice_interval" translate="label" sortOrder="40" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>When visitor closes the notice</label>
+                        <source_model>MagePrakash\CookieLaw\Model\Source\Notice</source_model>
+                    </field>
+                    
+                     <field id="cookielaw_autohide" translate="label" sortOrder="50" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Autohide (in seconds)</label>
+                     </field> 
+                 </group>
+
+                 <group id="cookielaw_content_group" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                 <label>Content</label>
+
+                     <field id="cookielaw_content" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                         <label>Content</label>
+                         <source_model>MagePrakash\CookieLaw\Model\Source\Content</source_model>
+                     </field> 
+
+                     <field id="cookielaw_custom_text" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Message Text</label>
+                        <depends>
+                            <field id="cookielaw_section/cookielaw_content_group/cookielaw_content">custom</field>
+                        </depends>
+                     </field> 
+
+                     <field id="cookielaw_close_text" translate="label" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Accept Text</label>
+                        <depends>
+                            <field id="cookielaw_section/cookielaw_content_group/cookielaw_content">custom</field>
+                        </depends>
+                     </field> 
+
+                     <field id="more_info_text" translate="label" sortOrder="40" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>More information Text</label>
+                        <depends>
+                            <field id="cookielaw_section/cookielaw_content_group/cookielaw_content">custom</field>
+                        </depends>
+                     </field>
+                     
+                     <field id="cookielaw_information_page" translate="label" sortOrder="50" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>More information Page</label>
+                        <source_model>Magento\Cms\Model\Config\Source\Page</source_model>
+                     </field>
+                 </group>
+        </section>
+    </system>
+</config>

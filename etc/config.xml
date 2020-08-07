@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cookielaw_section>
+            <cookielaw_configuration>
+                <cookielaw_enable>1</cookielaw_enable>
+            </cookielaw_configuration>
+            <cookielaw_general>
+                <cookielaw_style>bar</cookielaw_style>
+                <cookielaw_position>top</cookielaw_position>
+                <cookielaw_position_box>top-left</cookielaw_position_box>
+                <cookielaw_font_color>#fff</cookielaw_font_color>
+                <cookielaw_background_color>#000</cookielaw_background_color>
+                <cookielaw_notice_interval>365</cookielaw_notice_interval>
+                <cookielaw_autohide>0</cookielaw_autohide>
+            </cookielaw_general>
+            <cookielaw_content_group>
+            	<cookielaw_content>default</cookielaw_content>
+            	<cookielaw_custom_text>This websites use cookies.</cookielaw_custom_text>
+            	<cookielaw_close_text>Close</cookielaw_close_text>
+            	<more_info_text>More information</more_info_text>
+            	<cookielaw_information_page>privacy-policy-cookie-restriction-mode</cookielaw_information_page>
+            </cookielaw_content_group>
+        </cookielaw_section>
+    </default>
+</config>

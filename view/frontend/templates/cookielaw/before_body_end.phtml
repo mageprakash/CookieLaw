@@ -1,0 +1,7 @@
+<?php if($this->getConfig('cookielaw_section/cookielaw_configuration/cookielaw_enable')): ?>
+    <?php if($this->getConfig('cookielaw_section/cookielaw_general/cookielaw_position') != "top" || $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_style') != "bar"): ?>
+        <div class="<?php echo $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_style'); ?>">
+            <?php echo $block->getChildHtml('cookielaw.before_body_end.cookie'); ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

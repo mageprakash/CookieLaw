@@ -1,0 +1,60 @@
+<div id="cookielaw" class="mageprakash-bar <?php echo $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_style'); ?> <?php echo ($this->getConfig('cookielaw_section/cookielaw_general/cookielaw_style') == 'bar') ? $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_position') : $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_position_box'); ?>" style="display:none; color:<?php echo $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_font_color') ?>;background:<?php echo $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_background_color') ?>;" >
+    <div class="v-message">
+        <?php if($this->getConfig('cookielaw_section/cookielaw_content_group/cookielaw_content') == "custom"){
+            echo __($this->getConfig('cookielaw_section/cookielaw_content_group/cookielaw_custom_text'));
+            ?>
+            <div class="v-actions">
+                <a class="v-button v-accept">
+                    <?php echo __($this->getConfig('cookielaw_section/cookielaw_content_group/cookielaw_close_text')); ?>
+                </a>
+                <a href="<?php echo $block->getMoreInfoPageUrl($this->getConfig('cookielaw_section/cookielaw_content_group/cookielaw_information_page')); ?>" class="v-button">
+                    <?php echo __($this->getConfig('cookielaw_section/cookielaw_content_group/more_info_text')); ?>
+                </a>
+            </div>
+
+        <?php }else{
+			?>
+			<div class="magecookie-notice">
+			<?php
+            echo __('This websites use cookies. By continuing to browse the site you are agreeing to our use of cookies.');
+            ?>
+			</div>
+			
+            <div class="v-actions">
+                <a class="action primary v-accept"><?php echo __('Accept'); ?></a>
+                <a href="<?php echo $block->getMoreInfoPageUrl($this->getConfig('cookielaw_section/cookielaw_content_group/cookielaw_information_page')); ?>" class="v-more action primary"><?php echo __('More information'); ?></a>
+            </div>
+        <?php } ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'jquery/jquery.cookie'
+    ], function ($) {
+
+        $(document).ready(function () {
+            if(!$.cookie('cookielaw')){
+                $('#cookielaw').css('display','block');
+            }
+            
+            $('.v-accept').click(function () {
+                if (<?php echo $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_notice_interval') ?>) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (<?php echo $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_notice_interval') ?> * 24 * 60 * 60 * 1000));
+                }
+                $.cookie('cookielaw', '1', {expires: date});
+                $('#cookielaw').css('display','none');
+
+            });
+
+            if(<?php echo $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_autohide') ?>){
+                setTimeout(function() {
+                    $("#cookielaw").hide('blind', {}, 500)
+                }, 1000 * <?php echo $this->getConfig('cookielaw_section/cookielaw_general/cookielaw_autohide') ?>);
+            }
+
+        });
+    });
+</script>
